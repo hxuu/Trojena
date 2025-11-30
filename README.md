@@ -1,19 +1,19 @@
-# Eruditus - CTF helper bot
+# Trojena - CTF helper bot
 <p align="center">
         <a href="https://discord.com/developers/docs/interactions/slash-commands"><img src="https://img.shields.io/badge/%2F-Discord%20Slash-blue" alt="Discord Slash Commands"></a>
-        <a href="https://github.com/hfz1337/Eruditus/actions"><img src="https://img.shields.io/github/actions/workflow/status/hfz1337/Eruditus/pre-commit.yml?branch=master&logo=github" alt="GitHub Workflow Status"></a>
+        <a href="https://github.com/hfz1337/Trojena/actions"><img src="https://img.shields.io/github/actions/workflow/status/hfz1337/Trojena/pre-commit.yml?branch=master&logo=github" alt="GitHub Workflow Status"></a>
         <a href="https://github.com/pre-commit/pre-commit"> <img alt="pre-commit" src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white&style=flat-square"></a>
 </p>
 <br/>
 <p align="center">
   <img src="https://i.imgur.com/K5mNt37.jpg" alt="Logo" width="200">
-  <h3 align="center">Eruditus - CTF helper bot</h3>
+  <h3 align="center">Trojena - CTF helper bot</h3>
 </p>
 
 ## About
-Eruditus is a Discord CTF helper bot built with Python, it was initially designed to be
+Trojena is a Discord CTF helper bot built with Python, it was initially designed to be
 used internally within the CyberErudites CTF team in order to make team work as efficient
-as possible.  
+as possible.
 The bot implements a bunch of useful features and uses **Discord's Slash commands** to
 make its usage as intuitive as possible.
 
@@ -41,7 +41,7 @@ As you already read this bot can interact with the CTF platforms, meaning that y
 - Automatically create team accounts on the platform (or use already existing ones)
 - And many more
 
-Currently, Eruditus supports these platforms:
+Currently, Trojena supports these platforms:
 - CTFd
 - rCTF
 
