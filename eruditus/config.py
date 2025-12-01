@@ -84,4 +84,7 @@ CTFTIME_TEAM_ID = load_nullable_env_var("CTFTIME_TEAM_ID", factory=int)
 CTFTIME_TRACKING_CHANNEL = load_nullable_env_var("CTFTIME_TRACKING_CHANNEL", factory=int)
 CTFTIME_LEADERBOARD_CHANNEL = load_nullable_env_var("CTFTIME_LEADERBOARD_CHANNEL", factory=int)
 
-MONGO = MongoClient(MONGODB_URI)
+import certifi
+ca = certifi.where()
+
+MONGO = MongoClient(MONGODB_URI, tlsCAFile=ca)

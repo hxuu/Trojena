@@ -12,19 +12,10 @@ from discord.ext import tasks
 from discord.utils import setup_logging
 
 import config
-from app_commands.bookmark import Bookmark
-from app_commands.cipher import Cipher
 from app_commands.ctf import CTF
 from app_commands.ctftime import CTFTime
-from app_commands.encoding import Encoding
 from app_commands.help import Help
 from app_commands.intro import Intro
-from app_commands.report import Report
-from app_commands.request import Request
-from app_commands.revshell import Revshell
-from app_commands.search import Search
-from app_commands.syscalls import Syscalls
-from app_commands.takenote import TakeNote
 from config import (
     CHALLENGE_COLLECTION,
     CTF_COLLECTION,
@@ -175,16 +166,7 @@ class Eruditus(discord.Client):
     async def setup_hook(self) -> None:
         # Register commands.
         self.tree.add_command(Help())
-        self.tree.add_command(Syscalls())
-        self.tree.add_command(Revshell())
-        self.tree.add_command(Encoding())
         self.tree.add_command(CTFTime())
-        self.tree.add_command(Cipher())
-        self.tree.add_command(Report())
-        self.tree.add_command(Request())
-        self.tree.add_command(Search())
-        self.tree.add_command(Bookmark(), guild=discord.Object(GUILD_ID))
-        self.tree.add_command(TakeNote(), guild=discord.Object(GUILD_ID))
         self.tree.add_command(CTF(), guild=discord.Object(GUILD_ID))
         self.tree.add_command(Intro(), guild=discord.Object(GUILD_ID))
 

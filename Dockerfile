@@ -1,6 +1,6 @@
 FROM python:3.10
 
-RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb \
+RUN wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb \
     -O packages-microsoft-prod.deb \
     && dpkg -i packages-microsoft-prod.deb \
     && rm packages-microsoft-prod.deb
@@ -34,10 +34,10 @@ USER user
 ADD https://postman-echo.com/time/now /etc/builddate
 RUN git clone https://github.com/hfz1337/DiscordChatExporter ~/DiscordChatExporter
 
-ARG CHATLOGS_REPO=git@github.com:username/repo
+# ARG CHATLOGS_REPO=git@github.com:username/repo
 
-RUN git clone --depth=1 $CHATLOGS_REPO ~/chatlogs
-RUN git config --global user.email "eruditus@localhost" && \
-    git config --global user.name "eruditus"
+# RUN git clone --depth=1 $CHATLOGS_REPO ~/chatlogs
+# RUN git config --global user.email "eruditus@localhost" && \
+#     git config --global user.name "eruditus"
 
 ENTRYPOINT ["python3", "-u", "eruditus.py"]

@@ -1,0 +1,17 @@
+.data
+**/__pycache__
+**/venv
+**/.venv
+**/.idea
+**/.vscode
+**/*.pem
+venv/
+.git/
+__pycache__/
+*.log
+*.sqlite
+*.db
+node_modules/
+Dockerfile
+docker-compose.yml
+
