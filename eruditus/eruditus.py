@@ -134,80 +134,74 @@ class Eruditus(discord.Client):
         # announcement_channel = await guild.create_text_channel(
         #     name="📣-announcements", category=category_channel, overwrites=overwrites
         # )
-        challenges_forum = await guild.create_forum(
+        challenges_forum = await category_channel.create_forum(
             name="web",
-            category=category_channel,
             overwrites={
                 guild.default_role: discord.PermissionOverwrite(read_messages=False),
                 role: discord.PermissionOverwrite(
                     read_messages=True,
-                    send_messages=True,
-                    create_posts=True,
+                    create_public_threads=True,
+                    send_messages_in_threads=True,
                 ),
             },
             topic="Discuss web challenges here. Create a new post for each challenge.",
         )
-        challenges_forum = await guild.create_forum(
+        challenges_forum = await category_channel.create_forum(
             name="crypto",
-            category=category_channel,
             overwrites={
                 guild.default_role: discord.PermissionOverwrite(read_messages=False),
                 role: discord.PermissionOverwrite(
                     read_messages=True,
-                    send_messages=True,
-                    create_posts=True,
+                    create_public_threads=True,
+                    send_messages_in_threads=True,
                 ),
             },
             topic="Discuss crypto challenges here. Create a new post for each challenge.",
         )
-        challenges_forum = await guild.create_forum(
+        challenges_forum = await category_channel.create_forum(
             name="pwn",
-            category=category_channel,
             overwrites={
                 guild.default_role: discord.PermissionOverwrite(read_messages=False),
                 role: discord.PermissionOverwrite(
                     read_messages=True,
-                    send_messages=True,
-                    create_posts=True,
+                    create_public_threads=True,
+                    send_messages_in_threads=True,
                 ),
             },
             topic="Discuss pwn challenges here. Create a new post for each challenge.",
         )
-        challenges_forum = await guild.create_forum(
+        challenges_forum = await category_channel.create_forum(
             name="rev",
-            category=category_channel,
             overwrites={
                 guild.default_role: discord.PermissionOverwrite(read_messages=False),
                 role: discord.PermissionOverwrite(
                     read_messages=True,
-                    send_messages=True,
-                    create_posts=True,
+                    create_public_threads=True,
+                    send_messages_in_threads=True,
                 ),
             },
             topic="Discuss rev challenges here. Create a new post for each challenge.",
         )
-        challenges_forum = await guild.create_forum(
+        challenges_forum = await category_channel.create_forum(
             name="forensics",
-            category=category_channel,
             overwrites={
                 guild.default_role: discord.PermissionOverwrite(read_messages=False),
                 role: discord.PermissionOverwrite(
                     read_messages=True,
-                    send_messages=True,
-                    create_posts=True,
+                    create_public_threads=True,
+                    send_messages_in_threads=True,
                 ),
             },
             topic="Discuss forensics challenges here. Create a new post for each challenge.",
         )
-        challenges_forum = await guild.create_forum(
+        challenges_forum = await category_channel.create_forum(
             name="misc",
-            category=category_channel,
             overwrites={
                 guild.default_role: discord.PermissionOverwrite(read_messages=False),
                 role: discord.PermissionOverwrite(
                     read_messages=True,
-                    send_messages=True,
-                    create_posts=True,
+                    create_public_threads=True,
+                    send_messages_in_threads=True,
                 ),
             },
             topic="Discuss misc challenges here. Create a new post for each challenge.",

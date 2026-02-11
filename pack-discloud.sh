@@ -41,7 +41,6 @@ rsync -av \
     --exclude='*.pyo' \
     --exclude='.git' \
     --exclude='.gitignore' \
-    --exclude='.env' \
     --exclude='*.log' \
     --exclude='docker-compose.yml' \
     --exclude='Dockerfile' \
@@ -56,6 +55,7 @@ rsync -av \
     --exclude="$OUTPUT_FILE" \
     --exclude="$TEMP_DIR" \
     ./ "$TEMP_DIR/"
+# --exclude='.env' \
 
 # Verify required files exist
 echo -e "${GREEN}Verifying required files...${NC}"
