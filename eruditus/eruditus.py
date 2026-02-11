@@ -107,36 +107,114 @@ class Eruditus(discord.Client):
             )
 
         await guild.create_text_channel("general", category=category_channel)
-        await guild.create_voice_channel("general", category=category_channel)
+        # await guild.create_voice_channel("general", category=category_channel)
 
         overwrites = {
             guild.default_role: discord.PermissionOverwrite(read_messages=False),
             role: discord.PermissionOverwrite(read_messages=True, send_messages=False),
         }
 
-        bot_cmds_channel = await guild.create_text_channel(
-            name="🤖-bot-cmds",
+        solves_channel = await guild.create_text_channel(
+            name="🩸-solves", category=category_channel, overwrites=overwrites
+        )
+        # bot_cmds_channel = await guild.create_text_channel(
+        #     name="🤖-bot-cmds",
+        #     category=category_channel,
+        #     overwrites={
+        #         guild.default_role: discord.PermissionOverwrite(read_messages=False),
+        #         role: discord.PermissionOverwrite(read_messages=True),
+        #     },
+        # )
+        # credentials_channel = await guild.create_text_channel(
+        #     name="🔑-credentials", category=category_channel, overwrites=overwrites
+        # )
+        # notes_channel = await guild.create_text_channel(
+        #     name="📝-notes", category=category_channel, overwrites=overwrites
+        # )
+        # announcement_channel = await guild.create_text_channel(
+        #     name="📣-announcements", category=category_channel, overwrites=overwrites
+        # )
+        challenges_forum = await guild.create_forum(
+            name="web",
             category=category_channel,
             overwrites={
                 guild.default_role: discord.PermissionOverwrite(read_messages=False),
-                role: discord.PermissionOverwrite(read_messages=True),
+                role: discord.PermissionOverwrite(
+                    read_messages=True,
+                    send_messages=True,
+                    create_posts=True,
+                ),
             },
+            topic="Discuss web challenges here. Create a new post for each challenge.",
         )
-        credentials_channel = await guild.create_text_channel(
-            name="🔑-credentials", category=category_channel, overwrites=overwrites
+        challenges_forum = await guild.create_forum(
+            name="crypto",
+            category=category_channel,
+            overwrites={
+                guild.default_role: discord.PermissionOverwrite(read_messages=False),
+                role: discord.PermissionOverwrite(
+                    read_messages=True,
+                    send_messages=True,
+                    create_posts=True,
+                ),
+            },
+            topic="Discuss crypto challenges here. Create a new post for each challenge.",
         )
-        notes_channel = await guild.create_text_channel(
-            name="📝-notes", category=category_channel, overwrites=overwrites
+        challenges_forum = await guild.create_forum(
+            name="pwn",
+            category=category_channel,
+            overwrites={
+                guild.default_role: discord.PermissionOverwrite(read_messages=False),
+                role: discord.PermissionOverwrite(
+                    read_messages=True,
+                    send_messages=True,
+                    create_posts=True,
+                ),
+            },
+            topic="Discuss pwn challenges here. Create a new post for each challenge.",
         )
-        announcement_channel = await guild.create_text_channel(
-            name="📣-announcements", category=category_channel, overwrites=overwrites
+        challenges_forum = await guild.create_forum(
+            name="rev",
+            category=category_channel,
+            overwrites={
+                guild.default_role: discord.PermissionOverwrite(read_messages=False),
+                role: discord.PermissionOverwrite(
+                    read_messages=True,
+                    send_messages=True,
+                    create_posts=True,
+                ),
+            },
+            topic="Discuss rev challenges here. Create a new post for each challenge.",
         )
-        solves_channel = await guild.create_text_channel(
-            name="🎉-solves", category=category_channel, overwrites=overwrites
+        challenges_forum = await guild.create_forum(
+            name="forensics",
+            category=category_channel,
+            overwrites={
+                guild.default_role: discord.PermissionOverwrite(read_messages=False),
+                role: discord.PermissionOverwrite(
+                    read_messages=True,
+                    send_messages=True,
+                    create_posts=True,
+                ),
+            },
+            topic="Discuss forensics challenges here. Create a new post for each challenge.",
         )
-        scoreboard_channel = await guild.create_text_channel(
-            name="📈-scoreboard", category=category_channel, overwrites=overwrites
+        challenges_forum = await guild.create_forum(
+            name="misc",
+            category=category_channel,
+            overwrites={
+                guild.default_role: discord.PermissionOverwrite(read_messages=False),
+                role: discord.PermissionOverwrite(
+                    read_messages=True,
+                    send_messages=True,
+                    create_posts=True,
+                ),
+            },
+            topic="Discuss misc challenges here. Create a new post for each challenge.",
         )
+        # scoreboard_channel = await guild.create_text_channel(
+        #     name="📈-scoreboard", category=category_channel, overwrites=overwrites
+        # )
 
         ctf = {
             "name": name,
@@ -152,12 +230,12 @@ class Eruditus(discord.Client):
             "guild_role": role.id,
             "guild_category": category_channel.id,
             "guild_channels": {
-                "announcements": announcement_channel.id,
-                "credentials": credentials_channel.id,
-                "scoreboard": scoreboard_channel.id,
+                # "announcements": announcement_channel.id,
+                # "credentials": credentials_channel.id,
+                # "scoreboard": scoreboard_channel.id,
                 "solves": solves_channel.id,
-                "notes": notes_channel.id,
-                "bot-cmds": bot_cmds_channel.id,
+                # "notes": notes_channel.id,
+                # "bot-cmds": bot_cmds_channel.id,
             },
         }
         MONGO[DBNAME][CTF_COLLECTION].insert_one(ctf)
