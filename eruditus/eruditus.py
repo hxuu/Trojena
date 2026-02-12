@@ -106,35 +106,8 @@ class Eruditus(discord.Client):
                 overwrites=overwrites,
             )
 
-        await guild.create_text_channel("general", category=category_channel)
-        # await guild.create_voice_channel("general", category=category_channel)
 
-        overwrites = {
-            guild.default_role: discord.PermissionOverwrite(read_messages=False),
-            role: discord.PermissionOverwrite(read_messages=True, send_messages=False),
-        }
-
-        solves_channel = await guild.create_text_channel(
-            name="🩸-solves", category=category_channel, overwrites=overwrites
-        )
-        # bot_cmds_channel = await guild.create_text_channel(
-        #     name="🤖-bot-cmds",
-        #     category=category_channel,
-        #     overwrites={
-        #         guild.default_role: discord.PermissionOverwrite(read_messages=False),
-        #         role: discord.PermissionOverwrite(read_messages=True),
-        #     },
-        # )
-        # credentials_channel = await guild.create_text_channel(
-        #     name="🔑-credentials", category=category_channel, overwrites=overwrites
-        # )
-        # notes_channel = await guild.create_text_channel(
-        #     name="📝-notes", category=category_channel, overwrites=overwrites
-        # )
-        # announcement_channel = await guild.create_text_channel(
-        #     name="📣-announcements", category=category_channel, overwrites=overwrites
-        # )
-        challenges_forum = await category_channel.create_forum(
+        await category_channel.create_forum(
             name="web",
             overwrites={
                 guild.default_role: discord.PermissionOverwrite(read_messages=False),
@@ -146,7 +119,7 @@ class Eruditus(discord.Client):
             },
             topic="Discuss web challenges here. Create a new post for each challenge.",
         )
-        challenges_forum = await category_channel.create_forum(
+        await category_channel.create_forum(
             name="crypto",
             overwrites={
                 guild.default_role: discord.PermissionOverwrite(read_messages=False),
@@ -158,7 +131,19 @@ class Eruditus(discord.Client):
             },
             topic="Discuss crypto challenges here. Create a new post for each challenge.",
         )
-        challenges_forum = await category_channel.create_forum(
+        await category_channel.create_forum(
+            name="blockchain",
+            overwrites={
+                guild.default_role: discord.PermissionOverwrite(read_messages=False),
+                role: discord.PermissionOverwrite(
+                    read_messages=True,
+                    create_public_threads=True,
+                    send_messages_in_threads=True,
+                ),
+            },
+            topic="Discuss blockchain challenges here. Create a new post for each challenge.",
+        )
+        await category_channel.create_forum(
             name="pwn",
             overwrites={
                 guild.default_role: discord.PermissionOverwrite(read_messages=False),
@@ -170,7 +155,7 @@ class Eruditus(discord.Client):
             },
             topic="Discuss pwn challenges here. Create a new post for each challenge.",
         )
-        challenges_forum = await category_channel.create_forum(
+        await category_channel.create_forum(
             name="rev",
             overwrites={
                 guild.default_role: discord.PermissionOverwrite(read_messages=False),
@@ -182,7 +167,7 @@ class Eruditus(discord.Client):
             },
             topic="Discuss rev challenges here. Create a new post for each challenge.",
         )
-        challenges_forum = await category_channel.create_forum(
+        await category_channel.create_forum(
             name="forensics",
             overwrites={
                 guild.default_role: discord.PermissionOverwrite(read_messages=False),
@@ -194,7 +179,7 @@ class Eruditus(discord.Client):
             },
             topic="Discuss forensics challenges here. Create a new post for each challenge.",
         )
-        challenges_forum = await category_channel.create_forum(
+        await category_channel.create_forum(
             name="misc",
             overwrites={
                 guild.default_role: discord.PermissionOverwrite(read_messages=False),
@@ -206,9 +191,15 @@ class Eruditus(discord.Client):
             },
             topic="Discuss misc challenges here. Create a new post for each challenge.",
         )
-        # scoreboard_channel = await guild.create_text_channel(
-        #     name="📈-scoreboard", category=category_channel, overwrites=overwrites
-        # )
+
+        overwrites = {
+            guild.default_role: discord.PermissionOverwrite(read_messages=False),
+            role: discord.PermissionOverwrite(read_messages=True, send_messages=False),
+        }
+        solves_channel = await guild.create_text_channel(
+            name="🩸-solves", category=category_channel, overwrites=overwrites
+        )
+        await guild.create_text_channel("general", category=category_channel)
 
         ctf = {
             "name": name,
